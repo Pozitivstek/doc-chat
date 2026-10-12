@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DocChat — чат с вашими документами</title>
+  <meta name="description" content="Загрузите PDF и задавайте вопросы: ответы со ссылками на страницы документа.">
+  <meta name="theme-color" content="#07080c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080c'/%3E%3Cpath d='M18 18h20l8 8v20H18z' fill='none' stroke='%23b8ff4a' stroke-width='5' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">DocChat<span class="dot">.</span></div>
+  <span id="mode-badge" class="badge" hidden></span>
+  <button id="lang" class="chip" type="button" aria-label="Language">EN</button>
+</header>
+
+<main class="layout">
+
+  <aside class="side">
+    <div id="drop" class="drop" tabindex="0" role="button" aria-describedby="drop-hint">
+      <p class="drop-title" data-i18n="drop.title">Перетащите документ сюда</p>
+      <p id="drop-hint" class="muted" data-i18n="drop.hint">или нажмите, чтобы выбрать · PDF, TXT, MD</p>
+      <input id="file" type="file" accept=".pdf,.txt,.md,application/pdf,text/plain" multiple hidden>
+    </div>
+    <p id="upload-status" class="status" role="status"></p>
+
+    <h2 class="side-title" data-i18n="docs.title">Документы</h2>
+    <ul id="docs" class="docs"></ul>
+    <p id="docs-empty" class="muted small" data-i18n="docs.empty">Пока ничего не загружено.</p>
+
+    <p class="note small muted" id="note"></p>
+  </aside>
+
+  <section class="chat" aria-label="Chat">
+    <div id="messages" class="messages" aria-live="polite"></div>
+    <div id="suggestions" class="suggestions"></div>
+    <form id="form" class="composer">
+      <textarea id="question" rows="1" maxlength="2000" required
+                data-i18n-placeholder="composer.placeholder" placeholder="Задайте вопрос по документу…"></textarea>
+      <button id="send" class="btn primary" type="submit" data-i18n="composer.send">Спросить</button>
+    </form>
+  </section>
+
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

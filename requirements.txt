@@ -1,0 +1,7 @@
+fastapi>=0.115
+uvicorn>=0.30
+pypdf>=5.0
+cryptography>=42.0
+python-multipart>=0.0.9
+anthropic>=1.0
+python-dotenv>=1.0
